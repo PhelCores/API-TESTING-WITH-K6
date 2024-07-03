@@ -1,0 +1,36 @@
+# K6 Load Testing Scripts
+
+# This repository contains K6 scripts for load testing using the K6 performance testing tool. The scripts interact with a sample API to demonstrate user registration, authentication, and data retrieval functionalities.
+
+# Scripts
+
+# http.post.js
+
+# This script performs the following actions:
+
+# 	•	User Registration:
+# 	•	Registers a new user with dynamically generated credentials.
+# 	•	Endpoint: https://test-api.k6.io/user/register/
+# 	•	User Authentication:
+# 	•	Logs in using the registered user credentials to obtain an access token.
+# 	•	Endpoint: https://test-api.k6.io/auth/token/login/
+# 	•	Retrieve Crocodile Data:
+# 	•	Fetches a list of crocodiles from the API using the obtained access token.
+# 	•	Endpoint: https://test-api.k6.io/my/crocodiles/
+# 	•	Create a New Crocodile Resource:
+# 	•	Creates a new crocodile resource with predefined attributes.
+# 	•	Endpoint: https://test-api.k6.io/my/crocodiles/
+# 	•	Attributes: Name, Sex, Date of Birth
+
+# http.get.js
+
+# This script performs the following actions:
+
+# 	•	Retrieve Public Crocodile List:
+# 	•	Retrieves a list of public crocodiles from the API.
+# 	•	Endpoint: https://test-api.k6.io/public/crocodiles/
+# 	•	Retrieve Specific Crocodile Details:
+# 	•	Fetches detailed information about a specific crocodile using its ID.
+# 	•	Endpoint: https://test-api.k6.io/public/crocodiles/{crocoID}/
+# 	•	Assertions:
+# 	•	Verifies that the API responses meet expected criteria such as status code and crocodile details.
