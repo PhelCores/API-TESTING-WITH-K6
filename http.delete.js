@@ -1,12 +1,11 @@
 import http from 'k6/http';
 import { check } from 'k6';
-import { randomString } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 export default function () {
     // Generate unique credentials for each test iteration
     const credentials = {
-        username: "User_" + randomString(8),
-        password: "Secret_" + randomString(8)
+        username: "User_" + Date.now(),
+        password: "Secret_" + Date.now()
     };
 
     // Register a new user in the data base
@@ -78,4 +77,16 @@ const newCrocodileID = res.json().id
         "status is 200": (r) => r.status === 200,
         "New Croco ID ": (r) => r.json().id === newCrocodileID 
     })
+
+
+    res = http.del(
+        `https://test-api.k6.io/my/crocodiles/${newCrocodileID}`,
+        null,
+        {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        }
+    );
+
 }
